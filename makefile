@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -std=c11
-SRCS = giro_de_caras.c main.c
+SRCS = giro_de_caras.c main.c imprimir_cubo.c
 OBJS = $(SRCS:.c=.o)
 EXEC = programa
 all: $(EXEC)

@@ -1,5 +1,37 @@
 #include "giro_de_caras.h"
 
+//gira una cara en sentido horario actualizando las otras caras
+void girar_cara(int cara, int matriz[6][3][3]){
+    switch (cara)
+    {
+    case ATRAS:
+        invertirMatriz(matriz[ATRAS]);
+        // afecta las caras izquierda, arriba, derecha y abajo
+        break;
+    case ARRIBA:
+        invertirMatriz(matriz[ARRIBA]);
+        // afecta las caras frente, derecha, atras, izquierda
+        break;
+    case IZQUIERDA:
+        invertirMatriz(matriz[IZQUIERDA]);
+        // afecta las caras arriba, frente, abajo, atras
+        break;
+    case FRENTE:
+        invertirMatriz(matriz[FRENTE]);
+        // afecta las caras izquierda, arriba, derecha y abajo
+        break;
+    case DERECHA:
+        invertirMatriz(matriz[DERECHA]);
+        // afecta las caras arriba, frente, abajo, atras
+        break;
+    case ABAJO:
+        invertirMatriz(matriz[ABAJO]);
+        // afecta las caras frente, derecha, atras, izquierda
+        break;
+    }
+}
+
+
 //gira la matriz en dirreccion horaria
 void invertirMatriz(int matriz[3][3]) {
     // Intercambiar elementos a lo largo de la diagonal principal
@@ -21,12 +53,3 @@ void invertirMatriz(int matriz[3][3]) {
     }
 }
 
-
-void imprimirMatriz(int matriz[3][3]) {
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 3; j++) {
-            printf("%d ", matriz[i][j]);
-        }
-        printf("\n");
-    }
-}

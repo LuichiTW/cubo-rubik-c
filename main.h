@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "giro_de_caras.h"
-
+#include "imprimir_cubo.h"
 
 /* representacion grafica
     |0|
