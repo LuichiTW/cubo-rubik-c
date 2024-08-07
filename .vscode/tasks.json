@@ -2,17 +2,18 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"type": "cppbuild",
+			"type": "shell",
 			"label": "C/C++: gcc compilar proyecto",
-			"command": "C:\\msys64\\ucrt64\\bin\\gcc.exe",
+			"command": "gcc",
 			"args": [
 				"-fdiagnostics-color=always",
 				"-g",
 				"-Wall",
-				"-std=c2x",
+				"-std=c11",
 				"-pedantic-errors",
 				"-Wno-switch",
-				"${workspaceFolder}${pathSeparator}*.c",
+				"${workspaceFolder}/main.c",
+				"${workspaceFolder}/giro_de_caras.c",
 				"-o",
 				"${workspaceFolder}/${workspaceFolderBasename}.exe"
 			],
