@@ -8,45 +8,31 @@ int main() {
             {1, 2, 1},
             {1, 2, 1}},
 
-            {{2, 3, 2},
+            {{1, 2, 3},
             {2, 3, 2},
             {2, 3, 2}},
 
-{{3, 4, 3},
-{3, 4, 3},
+{{1, 4, 3},
+{2, 4, 3},
 {3, 4, 3}},
 
             {{4, 5, 4},
             {4, 5, 4},
             {4, 5, 4}},
 
-                        {{5, 6, 5},
-                        {5, 6, 5},
-                        {5, 6, 5}},
+                        {{5, 6, 1},
+                        {5, 6, 2},
+                        {5, 6, 3}},
         
             {{6, 7, 6},
             {6, 7, 6},
-            {6, 7, 6}}
+            {1, 2, 3}}
     };
 
+    imprimirCubo(matriz);
+    printf("\n");
+    girar_cara(0, matriz);
+    imprimirCubo(matriz);
 
-    /*
-    for (int i = 0; i < 6; i++)
-    {
-        printf("Matriz original:\n");
-    imprimirMatriz(matriz[i]);
-
-    invertirMatriz(matriz[i]);
-
-    printf("Matriz invertida:\n");
-    imprimirMatriz(matriz[i]);
-    }
-    */
-
-   imprimirCubo(matriz);
-    
-
-    
-
-    return 0;
+   return 0;
 }
