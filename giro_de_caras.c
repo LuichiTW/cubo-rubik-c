@@ -74,7 +74,11 @@ void girar_cara(int cara, int matriz[6][3][3]){
         abajo(columna derecha), 
         atras(columna derecha)
         */
-        
+        copiar_array_columna(matriz[ARRIBA], L_DERECHA, 0, 0, aux);
+        copiar_columna_columna(matriz[FRENTE], matriz[ARRIBA], L_DERECHA, 0);
+        copiar_columna_columna(matriz[ABAJO], matriz[FRENTE], L_DERECHA, 0);
+        copiar_columna_columna(matriz[ATRAS], matriz[ABAJO], L_DERECHA, 0);
+        copiar_array_columna(matriz[ATRAS], L_DERECHA, 1, 0, aux);
         break;
     case ABAJO:
         invertirMatriz(matriz[ABAJO]);
@@ -85,7 +89,11 @@ void girar_cara(int cara, int matriz[6][3][3]){
         atras(fila superior), 
         izquierda(fila inferior)
         */
-
+        copiar_array_fila(matriz[FRENTE][INFERIOR], aux, 0);
+        copiar_array_fila(matriz[ATRAS][SUPERIOR], matriz[FRENTE][INFERIOR], 0);
+        copiar_array_fila(matriz[][], matriz[][], 0);
+        copiar_array_fila(matriz[][], matriz[][], 0);
+        copiar_array_fila(aux, matriz[][], 0);
         break;
     }
 }
