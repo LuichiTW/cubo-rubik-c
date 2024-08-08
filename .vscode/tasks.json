@@ -14,6 +14,7 @@
 				"-Wno-switch",
 				"${workspaceFolder}/main.c",
 				"${workspaceFolder}/giro_de_caras.c",
+				"${workspaceFolder}/imprimir_cubo.c",
 				"-o",
 				"${workspaceFolder}/${workspaceFolderBasename}.exe"
 			],

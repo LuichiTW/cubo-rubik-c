@@ -7,6 +7,7 @@ void girar_cara(int cara, int matriz[6][3][3]){
     case ATRAS:
         invertirMatriz(matriz[ATRAS]);
         // afecta las caras izquierda, arriba, derecha y abajo
+        //actualizar_caras(/*columna o fila*/, /*nivel del 1 a 3*/, /*cara a afectar*/);
         break;
     case ARRIBA:
         invertirMatriz(matriz[ARRIBA]);
@@ -53,3 +54,16 @@ void invertirMatriz(int matriz[3][3]) {
     }
 }
 
+
+void actualizar_caras(int tipo, int nivel, int cara1[3][3], int cara2[3][3], int cara3[3][3], int cara4[3][3]){
+    int aux[3]; 
+    switch (tipo)
+    {
+    case 0: //fila
+        
+        break;
+    case 1: //columna
+        
+        break;
+    }
+}
