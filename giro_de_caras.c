@@ -18,7 +18,7 @@ void girar_cara(int cara, int matriz[6][3][3]){
         copiar_array_columna(matriz[IZQUIERDA], L_IZQUIERDA, 1, 1, matriz[ARRIBA][SUPERIOR]);
         copiar_array_columna(matriz[DERECHA], L_DERECHA, 0, 0, matriz[ARRIBA][SUPERIOR]);
         copiar_array_columna(matriz[DERECHA], L_DERECHA, 1, 1, matriz[ABAJO][INFERIOR]);
-        copiar_array_fila(aux, matriz[ABAJO][INFERIOR]);
+        copiar_array_fila(aux, matriz[ABAJO][INFERIOR], 0);
         break;
     case ARRIBA:
         invertirMatriz(matriz[ARRIBA]);
@@ -29,34 +29,80 @@ void girar_cara(int cara, int matriz[6][3][3]){
         atras(fila inferior)
         izquierda(fila superior)
         */
-        copiar_array_fila(matriz[FRENTE][SUPERIOR], aux);
-        
+        copiar_array_fila(matriz[FRENTE][SUPERIOR], aux , 0);
+        copiar_array_fila(matriz[DERECHA][SUPERIOR], matriz[FRENTE][SUPERIOR], 0);
+        copiar_array_fila(matriz[ATRAS][INFERIOR], matriz[DERECHA][SUPERIOR], 1);
+        copiar_array_fila(matriz[IZQUIERDA][SUPERIOR], matriz[ATRAS][INFERIOR], 1);
+        copiar_array_fila(aux, matriz[IZQUIERDA][SUPERIOR], 0);
         break;
     case IZQUIERDA:
         invertirMatriz(matriz[IZQUIERDA]);
-        // afecta las caras arriba(columna izquierda), frente(columna izquierda), abajo(columna izquierda), atras(columna izquierda)
+        // afecta las caras:
+        /*
+        arriba(columna izquierda), 
+        frente(columna izquierda), 
+        abajo(columna izquierda), 
+        atras(columna izquierda)
+        */
+        copiar_array_columna(matriz[ARRIBA], L_IZQUIERDA, 0, 0, aux);
+        copiar_columna_columna(matriz[ATRAS], matriz[ARRIBA], L_IZQUIERDA, 0);
+        copiar_columna_columna(matriz[ABAJO], matriz[ATRAS], L_IZQUIERDA, 0);
+        copiar_columna_columna(matriz[FRENTE], matriz[ABAJO], L_IZQUIERDA, 0);
+        copiar_array_columna(matriz[FRENTE], L_IZQUIERDA, 1, 0, aux);
         break;
     case FRENTE:
         invertirMatriz(matriz[FRENTE]);
-        // afecta las caras izquierda(columna derecha), arriba(fila inferior), derecha(columna derecha) y abajo(fila superior)
+        // afecta las caras:
+        /*
+        izquierda(columna derecha), 
+        arriba(fila inferior), 
+        derecha(columna derecha) 
+        abajo(fila superior)
+        */
+        
         break;
     case DERECHA:
         invertirMatriz(matriz[DERECHA]);
-        // afecta las caras arriba(columna derecha), frente(columna derecha), abajo(columna derecha), atras(columna derecha)
+        // afecta las caras: 
+        /*
+        arriba(columna derecha), 
+        frente(columna derecha), 
+        abajo(columna derecha), 
+        atras(columna derecha)
+        */
+
         break;
     case ABAJO:
         invertirMatriz(matriz[ABAJO]);
-        // afecta las caras frente(fila inferior), derecha(fila inferior), atras(fila superior), izquierda(fila inferior)
+        // afecta las caras: 
+        /*
+        frente(fila inferior), 
+        derecha(fila inferior), 
+        atras(fila superior), 
+        izquierda(fila inferior)
+        */
+
         break;
     }
 }
 
-void copiar_array_fila(int origen[3], int destino[3]){
+//copia un array de 3 a otro de 3
+void copiar_array_fila(int origen[3], int destino[3], int invert_lista){
+    if (invert_lista == 0)
+    {
     for(int i = 0; i < 3; i++){
         destino[i] = origen[i];
+    }   
+    }else{
+        int a = 2;
+        for(int i = 0; i < 3; i++){
+            destino[a] = origen[i];
+            a--;
+        } 
     }
 }
 
+//copia una columna a una lista o vice versa, con la posibilidad de copiar al revez
 void copiar_array_columna(int origen[3][3], int lado, int invert_origen, int invert_lista, int destino[3]){
     if (invert_lista == 0)
     {
@@ -79,6 +125,21 @@ void copiar_array_columna(int origen[3][3], int lado, int invert_origen, int inv
         }
         a--;
     }
+    }
+}
+
+void copiar_columna_columna(int matriz_origen[3][3], int matriz_destino[3][3], int lado, int invert_lista){
+    if (invert_lista == 0)
+    {
+    for(int i = 0; i < 3; i++){
+        matriz_destino[i][lado] = matriz_origen[i][lado];
+    }   
+    }else{
+        int a = 2;
+        for(int i = 0; i < 3; i++){
+            matriz_destino[a][lado] = matriz_origen[i][lado];
+            a--;
+        } 
     }
 }
 
