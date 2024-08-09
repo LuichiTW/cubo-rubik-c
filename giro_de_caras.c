@@ -90,10 +90,10 @@ void girar_cara(int cara, int matriz[6][3][3]){
         izquierda(fila inferior)
         */
         copiar_array_fila(matriz[FRENTE][INFERIOR], aux, 0);
-        copiar_array_fila(matriz[ATRAS][SUPERIOR], matriz[FRENTE][INFERIOR], 0);
-        copiar_array_fila(matriz[][], matriz[][], 0);
-        copiar_array_fila(matriz[][], matriz[][], 0);
-        copiar_array_fila(aux, matriz[][], 0);
+        copiar_array_fila(matriz[IZQUIERDA][INFERIOR], matriz[FRENTE][INFERIOR], 0);
+        copiar_array_fila(matriz[ATRAS][SUPERIOR], matriz[IZQUIERDA][INFERIOR], 1);
+        copiar_array_fila(matriz[IZQUIERDA][INFERIOR], matriz[ATRAS][SUPERIOR], 1);
+        copiar_array_fila(aux, matriz[IZQUIERDA][INFERIOR], 0);
         break;
     }
 }
