@@ -4,34 +4,47 @@ int main() {
 
 //matriz ejemplo para pruebas
     int matriz[6][3][3] = {
-            {{1, 2, 1},
-            {1, 2, 1},
-            {1, 2, 3}},
+            {{0, 0, 0},
+            {0, 0, 0},
+            {0, 0, 0}},
 
-            {{2, 3, 2},
-            {2, 3, 2},
-            {2, 3, 2}},
+            {{1, 1, 1},
+            {1, 1, 1},
+            {1, 1, 1}},
 
-{{1, 2, 3},
-{2, 4, 3},
-{3, 4, 3}},
+{{2, 2, 2},
+{2, 2, 2},
+{2, 2, 2}},
 
-            {{1, 2, 3},
-            {4, 5, 4},
-            {4, 5, 4}},
+            {{3, 3, 3},
+            {3, 3, 3},
+            {3, 3, 3}},
 
-                        {{1, 2, 3},
-                        {5, 6, 5},
-                        {5, 6, 5}},
+                        {{4, 4, 4},
+                        {4, 4, 4},
+                        {4, 4, 4}},
         
-            {{6, 7, 6},
-            {6, 7, 6},
-            {6, 7, 6}}
+            {{5, 5, 5},
+            {5, 5, 5},
+            {5, 5, 5}}
     };
 
     imprimirCubo(matriz);
     printf("\n");
-    girar_cara(1, matriz);
+    printf("giro cara izquierda\n");
+    girar_cara(2, matriz);
+    imprimirCubo(matriz);
+    printf("\n");
+    printf("giro cara frontal\n");
+    girar_cara(3, matriz);
+    imprimirCubo(matriz);
+    printf("\n");
+    printf("giro cara derecha\n");
+    girar_cara(4, matriz);
+    imprimirCubo(matriz);
+    printf("\n");
+    printf("giro cara abajo\n");
+    girar_cara(5, matriz);
     imprimirCubo(matriz);
 
    return 0;
