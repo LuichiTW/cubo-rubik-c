@@ -30,22 +30,8 @@ int main() {
     };
 
     imprimirCubo(matriz);
-    printf("\n");
-    printf("giro cara izquierda\n");
-    girar_cara(2, matriz);
-    imprimirCubo(matriz);
-    printf("\n");
-    printf("giro cara frontal\n");
-    girar_cara(3, matriz);
-    imprimirCubo(matriz);
-    printf("\n");
-    printf("giro cara derecha\n");
-    girar_cara(4, matriz);
-    imprimirCubo(matriz);
-    printf("\n");
-    printf("giro cara abajo\n");
-    girar_cara(5, matriz);
-    imprimirCubo(matriz);
+
+
 
    return 0;
 }

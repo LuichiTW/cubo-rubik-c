@@ -1,6 +1,14 @@
 #include "imprimir_cubo.h"
 
 
+void limpiarTerminal(void) {
+#ifdef _WIN32
+    system("cls");
+#else
+    system("clear");
+#endif
+}
+
 void imprimirCubo(int matriz[6][3][3]){
     imprimirMatriz(matriz[0]);
     printf("\n");
@@ -71,7 +79,7 @@ void cambiar_color(int numero){
         printf("\033[1;32m");
         break;
     case 5:
-        printf("\033[1;31m");
+        printf("\033[0;31m");
         break;
     }
 }
