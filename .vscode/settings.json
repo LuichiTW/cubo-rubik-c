@@ -1,5 +1,6 @@
 {
 	"files.associations": {
-		"stdio.h": "c"
+		"stdio.h": "c",
+		"imprimir_cubo.h": "c"
 	}
 }

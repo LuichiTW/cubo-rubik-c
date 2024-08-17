@@ -1,37 +1,27 @@
 #include "main.h"
 
 int main() {
+    char input[100]; // Buffer para almacenar la entrada del usuario
 
-//matriz ejemplo para pruebas
-    int matriz[6][3][3] = {
-            {{0, 0, 0},
-            {0, 0, 0},
-            {0, 0, 0}},
-
-            {{1, 1, 1},
-            {1, 1, 1},
-            {1, 1, 1}},
-
-{{2, 2, 2},
-{2, 2, 2},
-{2, 2, 2}},
-
-            {{3, 3, 3},
-            {3, 3, 3},
-            {3, 3, 3}},
-
-                        {{4, 4, 4},
-                        {4, 4, 4},
-                        {4, 4, 4}},
+    while (1) {
+        // Llamar a la función para imprimir el cubo
+        imprimirCubo(cubo_rubik);
         
-            {{5, 5, 5},
-            {5, 5, 5},
-            {5, 5, 5}}
-    };
+        printf("Introduce una instrucción (deja vacío para terminar): ");
+        fgets(input, sizeof(input), stdin);
 
-    imprimirCubo(matriz);
+        // Eliminar el salto de línea al final del string
+        input[strcspn(input, "\n")] = 0;
+
+        // Verificar si el string está vacío
+        if (strlen(input) == 0) {
+            break;
+        }
+
+        // Procesar la instrucción
+        string_a_caracteres(input);
+    }
 
 
-
-   return 0;
+    return 0;
 }
