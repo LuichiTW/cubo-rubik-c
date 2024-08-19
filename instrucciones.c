@@ -5,17 +5,43 @@
 //' es un giro en sentido anti horario
 //el numero es la cantidad de veces que repite el movimiento
 
-//! implementar
 //toma un string y lo separa en varios caracteres que luego se pasa a caracter_a_instruccion
 void string_a_caracteres(char input[100]){
     char *token = strtok(input, " "); // Separar el string por espacios
 
     while (token != NULL) {
-        caracter_a_instruccion(token); // Pasar cada palabra a la función
-        token = strtok(NULL, " "); // Obtener la siguiente palabra
+        if (es_numero(token[0]))
+        {
+            int cantidad = atoi(token[0]);
+            for(int i = 0; i < cantidad; i++){
+               if(token[2] == '\''){
+                for (int i = 0; i < 3; i++)
+                {
+                    caracter_a_instruccion(token[1]); // Pasar cada palabra a la función
+                }
+               }else{
+                caracter_a_instruccion(token[1]); // Pasar cada palabra a la función
+               }
+            }
+            token = strtok(NULL, " "); // Obtener la siguiente palabra
+        }else{
+                if(token[1] == '\''){
+                for (int i = 0; i < 3; i++)
+                {
+                    caracter_a_instruccion(token[0]); // Pasar cada palabra a la función
+                }
+               }else{
+                caracter_a_instruccion(token[0]); // Pasar cada palabra a la función
+               }        
+               token = strtok(NULL, " "); // Obtener la siguiente palabra
+        }
     }
+        
 }
 
+int es_numero(char caracter){
+    return caracter >= '0' && caracter <= '9';
+}
 
 /*
 U (Up): Capa Superior
@@ -26,7 +52,6 @@ F (Front): Capa Frontal
 B (Back): Capa Trasera
 */
 
-//! implementar
 //toma un caracter y lo ejecuta como instruccion
 void caracter_a_instruccion(char caracter){
     switch (caracter) {
