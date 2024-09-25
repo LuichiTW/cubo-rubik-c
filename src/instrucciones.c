@@ -12,31 +12,32 @@ void string_a_caracteres(char input[100]){
     while (token != NULL) {
         if (es_numero(token[0]))
         {
-            int cantidad = atoi(token[0]);
+            int cantidad = token[0] - '0'; // Convertir el caracter a un número
+
             for(int i = 0; i < cantidad; i++){
-               if(token[2] == '\''){
-                for (int i = 0; i < 3; i++)
-                {
+                if(token[2] == '\''){
+                    for (int i = 0; i < 3; i++)
+                    {
+                        caracter_a_instruccion(token[1]); // Pasar cada palabra a la función
+                    }
+                }else{
                     caracter_a_instruccion(token[1]); // Pasar cada palabra a la función
                 }
-               }else{
-                caracter_a_instruccion(token[1]); // Pasar cada palabra a la función
-               }
             }
             token = strtok(NULL, " "); // Obtener la siguiente palabra
         }else{
-                if(token[1] == '\''){
+            if(token[1] == '\''){
                 for (int i = 0; i < 3; i++)
                 {
                     caracter_a_instruccion(token[0]); // Pasar cada palabra a la función
                 }
-               }else{
+            }else{
                 caracter_a_instruccion(token[0]); // Pasar cada palabra a la función
-               }        
-               token = strtok(NULL, " "); // Obtener la siguiente palabra
+            }        
+            token = strtok(NULL, " "); // Obtener la siguiente palabra
         }
     }
-        
+
 }
 
 int es_numero(char caracter){
